@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<?
+<?php
 //require_once("for_form.php"); 
 //do_html_header("");
 //check_valid_user();
@@ -50,9 +50,9 @@ if (!isset($username)) $username = $valid_user;
 /*	echo $GLOBALS['tpers'] = $TypePers;
 	echo $GLOBALS['pers']['id_TypePers'];
 	echo $GLOBALS['TypePers'] = $TypePers;*/
-?>
+php?>
 <form name=ulaForm method="POST" >
-<?
+<?php
 $TypePers = f_get_TypePers($username);
 $TabNum = f_get_TabNum($username);
 $GLOBALS['pers'] = f_get_Pers($username);
@@ -61,7 +61,7 @@ $u_IP = $_SERVER["REMOTE_ADDR"];
 <script language="JavaScript" type="text/javascript">
       dojo.require("dojo.date");
 //<script type="text/javascript">	*/
-?>
+php?>
 <link rel="stylesheet" type="text/css" href="selena.css" />
 <link rel="stylesheet" type="text/css" href="menu.css" />
 
@@ -2043,19 +2043,19 @@ return s_param;
 	function cor_pers(t) {
 	var f = document.forms.ulaForm;
 		document.getElementById(""+t).innerHTML = '';
-	<?php /*	'<input name="t'+t+'" type="text" value="<? echo $row["Podjezd"]; ?>" size="3" />
+	<?php /*	'<input name="t'+t+'" type="text" value="<?php echo $row["Podjezd"]; php?>" size="3" />
 		
-			<td bgcolor="<?php echo $bgc; ?>"><div id="t<?php echo $row["TabNum"]; ?>"> <?php echo $row["TabNum"];		?> </div></td>
-			<td bgcolor="<?php echo $bgc; ?>"><div id="f<?php echo $row["TabNum"]; ?>"> <?php echo $row["Fam"];			?> </div></td>
-			<td bgcolor="<?php echo $bgc; ?>"><div id="n<?php echo $row["TabNum"]; ?>"> <?php echo $row["Name"]; 		?> </div></td>
-			<td bgcolor="<?php echo $bgc; ?>"><div id="s<?php echo $row["TabNum"]; ?>"> <?php echo $row["SecName"];		?> </div></td>
-			<td bgcolor="<?php echo $bgc; ?>"><div id="p<?php echo $row["TabNum"]; ?>"> <?php echo $row["NamePers"];	?> </div></td>
-			<td bgcolor="<?php echo $bgc; ?>"><div id="c<?php echo $row["TabNum"]; ?>"> <?php echo $row["phone_Cell"];	?> </div></td>
-			<td bgcolor="<?php echo $bgc; ?>"><div id="h<?php echo $row["TabNum"]; ?>"> <?php echo $row["phone_Home"];	?> </div></td>
-			<td bgcolor="<?php echo $bgc; ?>"><div id="l<?php echo $row["TabNum"]; ?>"> <?php echo $row["login"];		?> </div></td>
-			<td bgcolor="<?php echo $bgc; ?>"><div id="r<?php echo $row["TabNum"]; ?>"> <?php echo $row["id_Region"];	?> </div></td>
-            <td bgcolor="<?php echo $bgc; ?>"><div id="d<?php echo $row["TabNum"]; ?>">
-	*/	?>
+			<td bgcolor="<? echo $bgc; ?>"><div id="t<? echo $row["TabNum"]; ?>"> <? echo $row["TabNum"];		?> </div></td>
+			<td bgcolor="<? echo $bgc; ?>"><div id="f<? echo $row["TabNum"]; ?>"> <? echo $row["Fam"];			?> </div></td>
+			<td bgcolor="<? echo $bgc; ?>"><div id="n<? echo $row["TabNum"]; ?>"> <? echo $row["Name"]; 		?> </div></td>
+			<td bgcolor="<? echo $bgc; ?>"><div id="s<? echo $row["TabNum"]; ?>"> <? echo $row["SecName"];		?> </div></td>
+			<td bgcolor="<? echo $bgc; ?>"><div id="p<? echo $row["TabNum"]; ?>"> <? echo $row["NamePers"];		?> </div></td>
+			<td bgcolor="<? echo $bgc; ?>"><div id="c<? echo $row["TabNum"]; ?>"> <? echo $row["phone_Cell"];	?> </div></td>
+			<td bgcolor="<? echo $bgc; ?>"><div id="h<? echo $row["TabNum"]; ?>"> <? echo $row["phone_Home"];	?> </div></td>
+			<td bgcolor="<? echo $bgc; ?>"><div id="l<? echo $row["TabNum"]; ?>"> <? echo $row["login"];		?> </div></td>
+			<td bgcolor="<? echo $bgc; ?>"><div id="r<? echo $row["TabNum"]; ?>"> <? echo $row["id_Region"];	?> </div></td>
+            <td bgcolor="<? echo $bgc; ?>"><div id="d<? echo $row["TabNum"]; ?>">
+	*/	php?>
 	}
 //---------------------------------------------------------------------------------
 	function clr_adress() {
@@ -2152,8 +2152,8 @@ function s_Bill_Dog() {
 <table width=800 border="0" cellspacing="0" cellpadding="0">
   <tr bgcolor="#99CC66"><!--993300; POSITION:absolute;top:0;left:0-->
   	<td id="dateformat" height="20" align="center" colspan="3">
-		<input name="tp" type="hidden" id="tp" value="<? echo $TypePers; ?>" />
-    	<input name="TabNum" id="TabNum" type="hidden" value="<? echo $TabNum ?>" />
+		<input name="tp" type="hidden" id="tp" value="<?php echo $TypePers; php?>" />
+    	<input name="TabNum" id="TabNum" type="hidden" value="<?php echo $TabNum php?>" />
         <div id="clock"></div></td>
  <SCRIPT LANGUAGE="JavaScript">
  <!--
@@ -2176,42 +2176,42 @@ function s_Bill_Dog() {
     <ul id="hmenu" style="width:530px;">
 	<li><a href="#">Абоненты</a>
 		<ul>
-<?	$tn_tp = "tn=$TabNum&tp=$TypePers"; //	$GLOBALS['pers']['id_TypePers']
+<?php	$tn_tp = "tn=$TabNum&tp=$TypePers"; //	$GLOBALS['pers']['id_TypePers']
 	$tPr = $TypePers==4?"&m_TabNum=$TabNum":"";
-		?>	<li><a href='javascript:op_f("ins2rad", "Mform");'>Обновить МАСи</a></li><? /* add_build */ 
-	if ($TypePers != 4) { ?>
-			<li><a href='javascript:{ch_param("recon", "<?	echo $tn_tp; ?>", "Mform"); }'>Подключение</a></li>
-			<li><a href='javascript:{ch_param("sh_form","menu=pay&<? echo $tn_tp?>","Mform");}'>Платеж</a></li>		
-<?php /*?>	<li><a href='javascript:{op_f("pay","Mform");setTimeout("document.forms.ulaForm.id_town.onchange()",300);}'>Платеж</a></li>	<?php */?>	
+		php?>	<li><a href='javascript:op_f("ins2rad", "Mform");'>Обновить МАСи</a></li><?php /* add_build */ 
+	if ($TypePers != 4) { php?>
+			<li><a href='javascript:{ch_param("recon", "<?php	echo $tn_tp; php?>", "Mform"); }'>Подключение</a></li>
+			<li><a href='javascript:{ch_param("sh_form","menu=pay&<?php echo $tn_tp?>","Mform");}'>Платеж</a></li>		
+<?php /* php?>	<li><a href='javascript:{op_f("pay","Mform");setTimeout("document.forms.ulaForm.id_town.onchange()",300);}'>Платеж</a></li>	<?php */ php?>	
 			<li><a href='javascript:{op_f("show_err", "Mform"); }'>Ошибки базы</a></li>
-			<li><a href='javascript:{ch_param("fin","<? echo "$tn_tp&per=0"?>","Mform");}'>Фин.отчёт</a></li>		
-			<li><a href='javascript:{ch_param("sh_actions","<? echo "$tn_tp&per=0"?>","Mform");}'>Стат.отчёт</a></li>		
-			<li><a href='javascript:{ch_param("sh_t_abon","<? echo "$tn_tp&per=1"?>","Mform");}'>Терминал(абон.ошиб)</a></li>		
-			<li><a href='javascript:{ch_param("sh_t_inet","<? echo "$tn_tp&per=1"?>","Mform");}'>Терминал(инет.ошиб)</a></li>		
-			<li><a href='javascript:{ch_param("sh_v_bad","<? echo "$tn_tp&per=1"?>","Mform");}'>Отключать!</a></li>		
+			<li><a href='javascript:{ch_param("fin","<?php echo "$tn_tp&per=0"?>","Mform");}'>Фин.отчёт</a></li>		
+			<li><a href='javascript:{ch_param("sh_actions","<?php echo "$tn_tp&per=0"?>","Mform");}'>Стат.отчёт</a></li>		
+			<li><a href='javascript:{ch_param("sh_t_abon","<?php echo "$tn_tp&per=1"?>","Mform");}'>Терминал(абон.ошиб)</a></li>		
+			<li><a href='javascript:{ch_param("sh_t_inet","<?php echo "$tn_tp&per=1"?>","Mform");}'>Терминал(инет.ошиб)</a></li>		
+			<li><a href='javascript:{ch_param("sh_v_bad","<?php echo "$tn_tp&per=1"?>","Mform");}'>Отключать!</a></li>		
 <!--			<li><a href='javascript:op_f("do_off_cust", "Mform");'>Откл. должн.(авто)</a></li>
 			<li><a href='javascript:op_f("do_on_cust", "Mform");' >Подключить.(авто)</a></li>-->
-<? } ?>
-<?php /*?>	<li><a href='javascript:{ch_param("dolg", "tn=<? echo $TabNum; ?>&tp=<? echo $TypePers?>", "Mform"); }'>Должники</a></li><?php */?>
-			<li><a href='javascript:{ch_param("dolgn2","menu=dolgn2&<? echo $tn_tp.$tPr?>","Mform");}'>Должники (монтажн.)</a></li>
-			<li><a href='javascript:{ch_param("sh_form","menu=dolgn&<? echo $tn_tp?>", "Mform");}'>Должники</a></li>
-			<li><a href='javascript:{ch_param("sh_form","menu=otp&<? echo $tn_tp?>", "Mform");}'>Отпускники</a></li>
-			<li><a href='javascript:{ch_param("sh_form","menu=activ&<? echo $tn_tp?>", "Mform");}'>Действующие</a></li>
-			<li><a href='javascript:{ch_param("ab_err","<? echo $tn_tp?>", "Mform");}'>Нет заявки на откл.</a></li>
-			<li><a href='javascript:{ch_param("off_err","<? echo $tn_tp?>", "Mform");}'>откл.авто</a></li>
-			<li><a href='javascript:{ch_param("must_off","<? echo $tn_tp?>", "Mform");}'>Должн. с ошиб.!</a></li>
+<?php } php?>
+<?php /* php?>	<li><a href='javascript:{ch_param("dolg", "tn=<?php echo $TabNum; php?>&tp=<?php echo $TypePers?>", "Mform"); }'>Должники</a></li><?php */ php?>
+			<li><a href='javascript:{ch_param("dolgn2","menu=dolgn2&<?php echo $tn_tp.$tPr?>","Mform");}'>Должники (монтажн.)</a></li>
+			<li><a href='javascript:{ch_param("sh_form","menu=dolgn&<?php echo $tn_tp?>", "Mform");}'>Должники</a></li>
+			<li><a href='javascript:{ch_param("sh_form","menu=otp&<?php echo $tn_tp?>", "Mform");}'>Отпускники</a></li>
+			<li><a href='javascript:{ch_param("sh_form","menu=activ&<?php echo $tn_tp?>", "Mform");}'>Действующие</a></li>
+			<li><a href='javascript:{ch_param("ab_err","<?php echo $tn_tp?>", "Mform");}'>Нет заявки на откл.</a></li>
+			<li><a href='javascript:{ch_param("off_err","<?php echo $tn_tp?>", "Mform");}'>откл.авто</a></li>
+			<li><a href='javascript:{ch_param("must_off","<?php echo $tn_tp?>", "Mform");}'>Должн. с ошиб.!</a></li>
 		</ul>
 	</li>
-	<?php /*?><li><a href='javascript:{ch_param("dolg", "tn=<? echo $TabNum; ?>&tp=<? echo $TypePers?>", "Mform"); }'>Должники</a></li><?php */?>
+	<?php /* php?><li><a href='javascript:{ch_param("dolg", "tn=<?php echo $TabNum; php?>&tp=<?php echo $TypePers?>", "Mform"); }'>Должники</a></li><?php */ php?>
 	<li><a href="#">Заявки</a>
 		<ul>
-<? if ($TypePers != 4) { ?>
-            <li><a href='javascript:ch_param("sh_form","menu=noti&<? echo $tn_tp.$tPr?>","Mform");'>на ремонт сети</a></li>
-<? } //$GLOBALS['pers']['id_TypePers']?>
-            <li><a href='javascript:ch_param("mont_frsh","<? echo $tn_tp.$tPr?>","Mform");'> (свежие) <? if($TypePers == 4){echo "Заявки ".$GLOBALS['pers']['Fam']; } else {?>монтажников<? }?></a>
-            <li><a href='javascript:ch_param("mont","<? echo $tn_tp.$tPr?>","Mform");'><? if($TypePers == 4){echo "Заявки ".$GLOBALS['pers']['Fam']; } else {?>монтажников<? }?></a>
+<?php if ($TypePers != 4) { php?>
+            <li><a href='javascript:ch_param("sh_form","menu=noti&<?php echo $tn_tp.$tPr?>","Mform");'>на ремонт сети</a></li>
+<?php } //$GLOBALS['pers']['id_TypePers']?>
+            <li><a href='javascript:ch_param("mont_frsh","<?php echo $tn_tp.$tPr?>","Mform");'> (свежие) <?php if($TypePers == 4){echo "Заявки ".$GLOBALS['pers']['Fam']; } else { php?>монтажников<?php } php?></a>
+            <li><a href='javascript:ch_param("mont","<?php echo $tn_tp.$tPr?>","Mform");'><?php if($TypePers == 4){echo "Заявки ".$GLOBALS['pers']['Fam']; } else { php?>монтажников<?php } php?></a>
 			<!--&nbsp;<select name="mont" class='font8pt' id="mont" lang="ru"
-		    onchange='op_f("mont", "Mform");alert("!!!"); document.getElementById("Mform").innerHTML = ""; ch_param("mont", "mont=<? echo $_REQUEST ["mont"]; ?>, "Mform");'>
+		    onchange='op_f("mont", "Mform");alert("!!!"); document.getElementById("Mform").innerHTML = ""; ch_param("mont", "mont=<?php echo $_REQUEST ["mont"]; php?>, "Mform");'>
 <?php	$q_mont = "SELECT * FROM `personal` WHERE `id_TypePers`<4";
 		$mont = mysql_query($q_mont) or die(mysql_error());
 		$row_mont = mysql_fetch_assoc($mont);
@@ -2223,51 +2223,51 @@ do {
 	echo ">".$row_mont['Fam']." (таб.№ ".$row_mont['TabNum'].")</option>";
 		} while ($row_mont = mysql_fetch_assoc($mont));
   		$rows = mysql_num_rows($mont);
-  		if($rows > 0) { mysql_data_seek($mont, 0); $row_mont = mysqli_fetch_assoc($mont);  } ?>
+  		if($rows > 0) { mysql_data_seek($mont, 0); $row_mont = mysqli_fetch_assoc($mont);  } php?>
     </select>&nbsp;--> </li>
-		</ul><? if ($TypePers != 4) { ?><? }?>
+		</ul><?php if ($TypePers != 4) { php?><?php } php?>
 	</li>
 	<li><a href="#">Справочники</a>
 		<ul>
-<? if ($TypePers < 3) { ?>
-			<li><a href='javascript:op_f("cod_adr", "Mform");'>коды адресов</a></li><? /* add_build */ ?>
-<? } ?>
-			<li><a href='javascript:{ch_param("sh_form","menu=edt_bld&<? echo $tn_tp?>", "Mform");}'>адресов</a></li>
-	<!--		<li><a href='javascript:op_f("edt_bld_frm", "Mform");'>адресов</a></li><? /* add_build */ ?>-->
+<?php if ($TypePers < 3) { php?>
+			<li><a href='javascript:op_f("cod_adr", "Mform");'>коды адресов</a></li><?php /* add_build */ php?>
+<?php } php?>
+			<li><a href='javascript:{ch_param("sh_form","menu=edt_bld&<?php echo $tn_tp?>", "Mform");}'>адресов</a></li>
+	<!--		<li><a href='javascript:op_f("edt_bld_frm", "Mform");'>адресов</a></li><?php /* add_build */ php?>-->
 			<li><a href='javascript:op_f("equip", "Mform");'>оборудования</a></li>
-<?php /*?>			<li><a href="#">персонала</a></li>		<?php */?>
-			<li><a href='javascript:op_f("edt_tar", "Mform");<?php /*?>ab_st(<? echo $res["ab_sum"] ?>)<?php */?>'>Абон. тарифы</a></li>
+<?php /* php?>			<li><a href="#">персонала</a></li>		<?php */ php?>
+			<li><a href='javascript:op_f("edt_tar", "Mform");<?php /* php?>ab_st(<?php echo $res["ab_sum"] php?>)<?php */ php?>'>Абон. тарифы</a></li>
 		</ul>
 	</li>
-	<li><a href="#"><!--Пользователь--><? echo /*$TypePers!=1?"*/$username/*":""*/?></a>
+	<li><a href="#"><!--Пользователь--><?php echo /*$TypePers!=1?"*/$username/*":""*/ php?></a>
 		<ul>
-            <li><a href='javascript:ch_param("logs","<? echo $tn_tp.($TypePers!=1?"&s=0&login=$username":"")?>","Mform");'>посещения</a></li>
+            <li><a href='javascript:ch_param("logs","<?php echo $tn_tp.($TypePers!=1?"&s=0&login=$username":"")?>","Mform");'>посещения</a></li>
 			<li><a href="change_passwd_form.php">Сменить пароль</a></li>
 			<li><a href="logout.php">Выход</a></li>		</ul>
 	</li>
-	<? if ($TypePers == 1) {?>
+	<?php if ($TypePers == 1) { php?>
 		<li><a href="#">Админ</a>
 			<ul>
 			<li><a href='javascript:{op_f("exp", "Mform");}'>Отчёты‹</a></li>
 			<li><a href='javascript:op_f("pers", "Mform");'>Персонал</a></li>
-		<?	//$abon = mysql_query("SELECT * FROM `spr_tarifab` WHERE id_tarifab=1") or die(mysql_error());
+		<?php	//$abon = mysql_query("SELECT * FROM `spr_tarifab` WHERE id_tarifab=1") or die(mysql_error());
 			//	$res = mysql_fetch_assoc($abon);
-		?>
-			<li><a href='javascript:ch_param("sh_statH","<? echo $tn_tp?>&per=0", "Mform");'>График</a></li>
-			<li><a href='javascript:op_f("edt_con", "Mform");<?php /*?>ab_st(<? echo $res["ab_sum"] ?>)<?php */?>'>Тарифы подключения</a></li>
-			<li><a href='javascript:{ch_param("sh_v","<? echo $tn_tp?>&tr=2", "Mform");}'>Сеть</a></li>
-			<li><a href='javascript:{ch_param("sh_v","<? echo $tn_tp?>&tr=3", "Mform");}'>Свои</a></li>
-			<li><a href='javascript:{ch_param("sh_v","<? echo $tn_tp?>&tr=4", "Mform");}'>Безнал</a></li>
-			<li><a href='javascript:{ch_param("sh_v","<? echo $tn_tp?>&tr=5", "Mform");}'>Льготные</a></li>
-			<li><a href='javascript:{ch_param("sh_v","<? echo $tn_tp?>&tr=6", "Mform");}'>VIP-ы</a></li>
-			<? if ($TabNum==2) {?>
+		php?>
+			<li><a href='javascript:ch_param("sh_statH","<?php echo $tn_tp?>&per=0", "Mform");'>График</a></li>
+			<li><a href='javascript:op_f("edt_con", "Mform");<?php /* php?>ab_st(<?php echo $res["ab_sum"] php?>)<?php */ php?>'>Тарифы подключения</a></li>
+			<li><a href='javascript:{ch_param("sh_v","<?php echo $tn_tp?>&tr=2", "Mform");}'>Сеть</a></li>
+			<li><a href='javascript:{ch_param("sh_v","<?php echo $tn_tp?>&tr=3", "Mform");}'>Свои</a></li>
+			<li><a href='javascript:{ch_param("sh_v","<?php echo $tn_tp?>&tr=4", "Mform");}'>Безнал</a></li>
+			<li><a href='javascript:{ch_param("sh_v","<?php echo $tn_tp?>&tr=5", "Mform");}'>Льготные</a></li>
+			<li><a href='javascript:{ch_param("sh_v","<?php echo $tn_tp?>&tr=6", "Mform");}'>VIP-ы</a></li>
+			<?php if ($TabNum==2) { php?>
 			<li><a href='javascript:op_f("g_mac", "Mform");'>МАС</a></li>
 				<!--<li><a href='javascript:op_f("pay_usr", "Mform");' class="navText">-Платёжи абонента-</a></li>
 				<li><a href='javascript:op_f("tab_usr", "Mform");' class="navText">-Таблица абонентов-</a></li>-->
-			<? }?>
+			<?php } php?>
 			</ul>
 		</li>
-	<? }?>
+	<?php } php?>
 </ul>
 </td>  	
   </tr>
@@ -2293,4 +2293,4 @@ do {
 
 </table>
 </form>
-<? do_html_footer(); ?>
+<?php do_html_footer(); php?>
